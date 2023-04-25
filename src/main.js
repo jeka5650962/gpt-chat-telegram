@@ -5,6 +5,11 @@ import config from 'config'
 const bot = new Telegraf(config.get('TELEGRAM_TOKEN'))
 
 bot.on(message('voice'), async ctx => {
+    try {
+
+    } catch (e) {
+        console.log('Error while voice message', e.message)
+    }
     await ctx.reply(JSON.stringify(ctx.message.voice, null, 2))
 })
 
